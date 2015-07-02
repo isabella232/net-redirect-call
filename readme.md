@@ -11,6 +11,7 @@ As usual, you can find the full source code on [GitHub](https://github.com/sinch
 
 The flow of the calls in this kind of solution looks like this:
 <img src="images/napkin-diagram.png"/>
+<br>
 In this tutorial, we are going to implement the backend part.
 
 ## Prerequisites 
