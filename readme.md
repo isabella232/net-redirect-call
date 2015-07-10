@@ -21,7 +21,7 @@ In this tutorial, we are going to implement the backend part.
 ## Configure your app 
 Once you have a phone number—in my case, +1 213-454-0537—assign it to your app by clicking on the pen and then Voice: 
 ![configure your app](images/configureapp.png)
-Enter a callbackurl. This is the URL the Sinch service will hit when there is a call happening associated with your app. 
+Enter a callback url. This is the URL the Sinch service will hit when there is a call happening associated with your app. 
  
 ## Code
 This service is going to have two endpoints: one for associating a caller id with a specific phone number to call and one for the actual callback URL for the Sinch backend. 
@@ -49,6 +49,7 @@ namespace Models {
 ```
 
 The above code just adds a static list with configs, where “from” is the calling phone and “to” is the phone to which we want it to be connected. I abstracted this for your benefit, so you can have an internal service like this that is entirely decoupled from your user database. 
+
 Next, let’s add an endpoint in our WebAPI to configure where we want to connect.
 
 **ConfigureController.cs**
@@ -103,7 +104,7 @@ public Svamlet Post(CallbackEventModel model)
 				.WithoutCallbacks().Model;
     }
     else {
-		// no config cound, tell the caller and hangup
+		// no config sound, tell the caller and hangup
         result = builder.Say("invalid caller id").Hangup().Model;
     }
     return result;
@@ -113,5 +114,5 @@ public Svamlet Post(CallbackEventModel model)
 As you can see in the above code, it’s super simple to create some pretty nice functionality with just a few lines of code. Note that we are replacing the caller id with the number the user dialed; in my case, the Los Angeles number to keep both users’ numbers private.
 
 ## What’s next?
-This tutorial relies on caller id, which can be a little flaky since the user might not display the caller id. In our experience, it still works well with Sinch and many of our customers rely on caller id for their solutions. Alternatively, you could rent multiple numbers from us (you can determine how many with the maximum concurrent number of calls you need to support) and connect to the right number using destination only.
+This tutorial relies on caller id, which can be a little flaky since the user might not display the caller id. In our experience, it still works well with Sinch, and many of our customers rely on caller id for their solutions. Alternatively, you could rent multiple numbers from us (you can determine how many with the maximum concurrent number of calls you need to support) and connect to the right number using destination only.
 
