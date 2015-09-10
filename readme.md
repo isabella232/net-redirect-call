@@ -1,7 +1,7 @@
 # How to Keep Your Customers’ Phone Numbers Private in an Uber-for-X Solution
 
 
-There are a number of use cases for number forwarding. Say, for instance, you want to have local presence in a country or a city and you want to protect your users’ privacy by not giving out or displaying their phone numbers. In this tutorial we will build a super simple API using C# that will redirect phone calls to a given number using our SVAML. We will use the caller id of the calling party to determine where we connect the call. 
+In this tutorial we will be building a private number solution for an Uber for X app. There are a number of use cases for number forwarding. Say, for instance, you want to have local presence in a country or a city and you want to protect your users’ privacy by not giving out or displaying their phone numbers. In this tutorial we will build a super simple API using C# that will redirect phone calls to a given number using our SVAML. We will use the caller id of the calling party to determine where we connect the call. 
 
 As usual, you can find the full source code on [GitHub](https://github.com/sinch/net-redirect-call) or deploy directly to your Azure account if you want to try it out.
 
