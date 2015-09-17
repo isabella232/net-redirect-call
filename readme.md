@@ -78,7 +78,6 @@ public void Post(string from, string to) {
     NumberConfigContext.Current().Add(config);
 }
 ```
-
 Let's build a list current configs to:
 ```csharp
 [HttpGet]
@@ -86,7 +85,6 @@ public List<NumberConfig> Get() {
     return NumberConfigContext.Current();
 }
 ```
-
 Build this and *post* the following URL with [Postman](https://www.getpostman.com/) 
 
 http://yourserver/api/Configure?from=+15612600684&to=+460000000000
@@ -100,7 +98,6 @@ Create WebAPI controller called **SinchController**; this controller will be res
 install-package Sinch.Callback
 ```
 And now the actual code:
-
 ```csharp
 public Svamlet Post(CallbackEventModel model)
 {
@@ -123,7 +120,6 @@ public Svamlet Post(CallbackEventModel model)
     return result;
 }
 ```
-
 As you can see in the above code, it’s super simple to create some pretty nice functionality with just a few lines of code. Note that we are replacing the Caller ID with the number the user dialed - in my case, the Los Angeles number - to keep both users’ numbers private.
 
 ## What’s next?
