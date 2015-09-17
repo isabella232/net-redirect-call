@@ -61,7 +61,6 @@ namespace Models {
     }
 }
 ```
-
 The above code just adds a static list with configs, where “from” is the calling phone and “to” is the phone to which we want it to be connected. I abstracted this for your benefit, so you can have an internal service like this that is entirely decoupled from your user database. 
 
 Next, let’s add an endpoint in our WebAPI to configure where we want to connect.
