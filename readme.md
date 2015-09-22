@@ -20,10 +20,11 @@ In this tutorial, we are going to implement the backend part.
 
 As usual, you can find the full source code on [GitHub](https://github.com/sinch/net-redirect-call) or deploy directly to your Azure account if you want to try it out.
 
-<center><a href="https://azuredeploy.net/?repository=https://github.com/sinch/net-redirect-call/" target="_blank">
+<a href="https://azuredeploy.net/?repository=https://github.com/sinch/net-redirect-call/" target="_blank">
     <img src="images/deploybutton.png"/>
-</a></center>
-
+</a> or open it in Visual studio <a href="git-client://clone?repo=https%3A%2F%2Fgithub.com%2Fsinch%2Fnet-redirect-call" class="btn btn-primary" title="Save sinch/net-redirect-call to your computer and open it in Visual Studio." aria-label="Save sinch/nuget-serversdk to your computer and open it in Visual Studio.">
+    Open in Visual Studio
+  </a>
 
 
 ### Prerequisites 
@@ -95,30 +96,23 @@ Then, *get* http://yourserver/api/Configure and you should see that we successfu
 Create WebAPI controller called **SinchController**; this controller will be responsible for parsing and responding to SVAML. Sinch swag CTO Björn Fransson is sharing his NuGet with all the SVAML we support, including some undocumented features—can you spot them? For the list of supported SVAML, check out the [documentation](https://www.sinch.com/docs/voice/rest/#callbackapi "Callback documentation") if you prefer to make it yourself instead of NuGet.
 
 ```nugetgithub
-install-package Sinch.Callback
+pm> Install-Package Sinch.ServerSdk 
 ```
 And now the actual code:
 ```csharp
-public Svamlet Post(CallbackEventModel model)
-{
-    var sinch = new CallbackFactory(new Locale("en-US")); //1
-    Svamlet result = null;
+public SvamletModel Post(CallbackEventModel model) {
+	var sinch = SinchFactory.CreateCallbackResponseFactory(Locale.EnUs);
+	SvamletModel result = null;
     var builder = sinch.CreateIceSvamletBuilder();
     if (NumberConfigContext.Current().Any(c => c.From == model.From)) {
-		//handle invalid configs, here you can also delete any configs if its supposed to be valid for one time only
-        var config = NumberConfigContext.Current()
-			.FirstOrDefault(c => c.From == model.From);
-		//instruct sinch to connect the call with no further callbacks (ACE and DICE)
-        result = builder.ConnectPstn(config.To)
-				.WithCli(model.To.Endpoint)
-				.WithoutCallbacks().Model;
-    }
-    else {
-		// no config sound, tell the caller and hangup
-        result = builder.Say("invalid caller id").Hangup().Model;
-    }
-    return result;
+    	var config = NumberConfigContext.Current().FirstOrDefault(c => c.From == model.From);
+        result = builder.ConnectPstn(config.To).WithCli(model.To.Endpoint).WithoutCallbacks().Model;
+	} else {
+		result = builder.Say("Invalid caller id!").Hangup().Model;
+	}
+	return result;
 }
+
 ```
 As you can see in the above code, it’s super simple to create some pretty nice functionality with just a few lines of code. Note that we are replacing the Caller ID with the number the user dialed - in my case, the Los Angeles number - to keep both users’ numbers private.
 
