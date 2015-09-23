@@ -18,13 +18,11 @@ In this tutorial we're building a super simple API using C# to redirect phone ca
 
 In this tutorial, we are going to implement the backend part.
 
-As usual, you can find the full source code on [GitHub](https://github.com/sinch/net-redirect-call) or deploy directly to your Azure account if you want to try it out.
+As usual, you can find the full source code on [GitHub](https://github.com/sinch/net-redirect-call), </a> open in <a href="git-client://clone?repo=https%3A%2F%2Fgithub.com%2Fsinch%2Fnet-redirect-call" class="btn btn-primary" title="Save sinch/net-redirect-call to your computer and open it in Visual Studio." aria-label="Save sinch/nuget-serversdk to your computer and open it in Visual Studio.">Visual Studio</a>, or deploy directly to your Azure account if you want to try it out.
 
 <a href="https://azuredeploy.net/?repository=https://github.com/sinch/net-redirect-call/" target="_blank">
-    <img src="images/deploybutton.png"/>
-</a> or open it in Visual studio <a href="git-client://clone?repo=https%3A%2F%2Fgithub.com%2Fsinch%2Fnet-redirect-call" class="btn btn-primary" title="Save sinch/net-redirect-call to your computer and open it in Visual Studio." aria-label="Save sinch/nuget-serversdk to your computer and open it in Visual Studio.">
-    Open in Visual Studio
-  </a>
+    <img src="images/deploybutton.png"/></a>
+
 
 
 ### Prerequisites 
@@ -65,8 +63,10 @@ namespace Models {
 The above code just adds a static list with configs, where “from” is the calling phone and “to” is the phone to which we want it to be connected. I abstracted this for your benefit, so you can have an internal service like this that is entirely decoupled from your user database. 
 
 Next, let’s add an endpoint in our WebAPI to configure where we want to connect.
+<br>
 
 **ConfigureController.cs**
+
 ```csharp
 [HttpPost]
 public void Post(string from, string to) {
@@ -80,6 +80,7 @@ public void Post(string from, string to) {
 }
 ```
 Let's build a list current configs to:
+
 ```csharp
 [HttpGet]
 public List<NumberConfig> Get() {
@@ -99,6 +100,7 @@ Create WebAPI controller called **SinchController**; this controller will be res
 pm> Install-Package Sinch.ServerSdk 
 ```
 And now the actual code:
+
 ```csharp
 public SvamletModel Post(CallbackEventModel model) {
 	var sinch = SinchFactory.CreateCallbackResponseFactory(Locale.EnUs);
