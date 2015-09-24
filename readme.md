@@ -1,3 +1,5 @@
+Writer's note: *Hey! Let's push the gig economy forward - please share this piece in your community.*
+
 # Keep users’ phone numbers private in your Uber for X
 ![configure your app](images/uberforx.jpg)
 
