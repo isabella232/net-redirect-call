@@ -18,7 +18,7 @@ In this tutorial we're building a super simple API using C# to redirect phone ca
 
 In this tutorial, we are going to implement the backend part.
 
-As usual, you can find the full source code on [GitHub](https://github.com/sinch/net-redirect-call), open in <a href="git-client://clone?repo=https%3A%2F%2Fgithub.com%2Fsinch%2Fnet-redirect-call" class="btn btn-primary" title="Save sinch/net-redirect-call to your computer and open it in Visual Studio." aria-label="Save sinch/nuget-serversdk to your computer and open it in Visual Studio.">Visual Studio</a>, or deploy directly to your Azure account if you want to try it out.
+As usual, you can find the full source code on [GitHub](https://github.com/sinch/net-redirect-call) or deploy directly to your Azure account if you want to try it out.
 
 <a href="https://azuredeploy.net/?repository=https://github.com/sinch/net-redirect-call/" target="_blank">
     <img src="images/deploybutton.png"/></a>
