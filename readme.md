@@ -4,7 +4,7 @@ Writer's note: *Hey! Let's push the gig economy forward - please share this piec
 ![configure your app](images/uberforx.jpg)
 
 ##The On-Demand Demand
-The Ubers of X have two very interesting common denominators: A decentralized workforce, and a need for real-time communication. With <a href="http://ben-evans.com/benedictevans/2015/6/19/presentation-mobile-is-eating-the-world" target="_blank">the world turning mobile</a>, our phone numbers are the most precious thing we own, and like with all precious things, we want to keep it safe and sound - and away from strangers.
+The Ubers for X have two very interesting common denominators: A decentralized workforce, and a need for real-time communication. With <a href="http://ben-evans.com/benedictevans/2015/6/19/presentation-mobile-is-eating-the-world" target="_blank">the world turning mobile</a>, our phone numbers are the most precious thing we own, and like with all precious things, we want to keep it safe and sound - and away from strangers.
 
 <a href="https://www.sinch.com/ideas/anonymous-calling-demand/" target="_blank">The gig economy is compromising user privacy</a> on a grass root level. The brilliance in decentralizing responsibility while upping speed, availability and competitive pricing, also implies users worrying about throwing their phone numbers around to “strangers”. That’s why <a href= "https://www.sinch.com/features/anonymous-calling/" target="_blank">protecting users phone numbers</a>  will add some serious value to an <a href="https://www.sinch.com/learn/demand-revolution/" target="_blank">Uber for X</a> solution.
 
@@ -26,11 +26,11 @@ As usual, you can find the full source code on [GitHub](https://github.com/sinch
     <img src="images/deploybutton.png"/></a>
 
 
-### Prerequisites 
+## Prerequisites 
 1. A [Sinch account](https://www.sinch.com/signup) and an app with keys 
 2. A phone number [rented from Sinch] (https://www.sinch.com/dashboard/#/numbers); make sure it’s a voice number
 
-### Configure your app 
+## Configure your app 
 Once you have a phone number - in my case +1 213-454-0537 - assign it to your app by clicking on the pen and then Voice:
 
 ![configure your app](images/dashboard.jpg)
@@ -40,7 +40,7 @@ Enter a callback URL. This is the URL the Sinch service will hit when there is a
 ## Code
 *This service is going to have two endpoints: one for associating a Caller ID with a specific phone number and one for the actual callback URL for the Sinch backend.*
 
-###Configure API
+## Configure API
 I am going to store the configuration in memory, so let’s create a simple model to keep track of the “from” and “to” numbers. 
 
 ```csharp
@@ -94,7 +94,7 @@ Build this and **POST** the following URL with [Postman](https://www.getpostman.
 
 Then, **GET** `http://yourserver/api/Configure` and you should see that we successfully added a config. 
 
-### Implementing the callback controller 
+## Implementing the callback controller 
 Create WebAPI controller called **SinchController**; this controller will be responsible for parsing and responding to SVAML. Sinch swag CTO Björn Fransson is sharing his NuGet with all the SVAML we support, including some undocumented features—can you spot them? For the list of supported SVAML, check out the [documentation](https://www.sinch.com/docs/voice/rest/#callbackapi "Callback documentation") if you prefer to make it yourself instead of NuGet.
 
 ```nugetgithub
