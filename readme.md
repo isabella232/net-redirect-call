@@ -22,8 +22,7 @@ In this tutorial, we are going to implement the backend part.
 
 As usual, you can find the full source code on [GitHub](https://github.com/sinch/net-redirect-call) or deploy directly to your Azure account if you want to try it out.
 
-<a href="https://azuredeploy.net/?repository=https://github.com/sinch/net-redirect-call/" target="_blank">
-    <img src="images/deploybutton.png"/></a>
+[![net promoter score](images/deploybutton.png)] (https://azuredeploy.net/?repository=https://github.com/sinch/csharp-nps-sms-delighted)
 
 
 ## Prerequisites 
