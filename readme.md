@@ -88,11 +88,11 @@ public List<NumberConfig> Get() {
     return NumberConfigContext.Current();
 }
 ```
-Build this and *post* the following URL with [Postman](https://www.getpostman.com/) 
+Build this and **POST** the following URL with [Postman](https://www.getpostman.com/) 
 
-http://yourserver/api/Configure?from=+15612600684&to=+460000000000
+`http://yourserver/api/Configure?from=+15612600684&to=+460000000000`
 
-Then, *get* http://yourserver/api/Configure and you should see that we successfully added a config. 
+Then, **GET** `http://yourserver/api/Configure` and you should see that we successfully added a config. 
 
 ### Implementing the callback controller 
 Create WebAPI controller called **SinchController**; this controller will be responsible for parsing and responding to SVAML. Sinch swag CTO Björn Fransson is sharing his NuGet with all the SVAML we support, including some undocumented features—can you spot them? For the list of supported SVAML, check out the [documentation](https://www.sinch.com/docs/voice/rest/#callbackapi "Callback documentation") if you prefer to make it yourself instead of NuGet.
