@@ -1,9 +1,5 @@
-Writer's note: *Hey! Let's push the gig economy forward - please share this piece in your community.*
-
 # Keep users phone numbers private in your Uber for X
-![configure your app](images/uberforx.jpg)
 
-##The On-Demand Demand
 The Ubers for X have two very interesting common denominators: A decentralized workforce, and a need for real-time communication. With <a href="http://ben-evans.com/benedictevans/2015/6/19/presentation-mobile-is-eating-the-world" target="_blank">the world turning mobile</a>, our phone numbers are the most precious thing we own, and like with all precious things, we want to keep it safe and sound - and away from strangers.
 
 <a href="https://www.sinch.com/ideas/anonymous-calling-demand/" target="_blank">The gig economy is compromising user privacy</a> on a grass root level. The brilliance in decentralizing responsibility while upping speed, availability and competitive pricing, also implies users worrying about throwing their phone numbers around to “strangers”. That’s why <a href= "https://www.sinch.com/features/anonymous-calling/" target="_blank">protecting users phone numbers</a>  will add some serious value to an <a href="https://www.sinch.com/learn/demand-revolution/" target="_blank">Uber for X</a> solution.
